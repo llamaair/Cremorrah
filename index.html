@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cremorrah Bubble</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #000;
+      color: aliceblue; /* Set text color for the whole page */
+    }
+
+    canvas {
+      display: block;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: -1;
+    }
+
+    .content {
+      /* Styles for your content go here */
+      padding: 20px;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="starsCanvas"></canvas>
+
+  <div class="content">
+    <h1>The Cremorrah Bubble</h1>
+    <p>The Cremorrah bubble is an Elite: Dangerous player driven bubble founded by the 2 CMDRs asarakola and Marc13 in mid 3309's</p>
+    <!-- Add more content as needed -->
+  </div>
+
+  <script>
+    // JavaScript code for generating stars on the canvas
+    const canvas = document.getElementById('starsCanvas');
+    const ctx = canvas.getContext('2d');
+
+    // Set canvas dimensions to match the window size
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    // Function to generate random stars
+    function generateStars() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = '#FFF';
+
+      for (let i = 0; i < 200; i++) {
+        const x = Math.random() * canvas.width;
+        const y = Math.random() * canvas.height;
+        const size = Math.random() * 2;
+
+        ctx.fillRect(x, y, size, size);
+      }
+    }
+
+    // Call the generateStars function initially and on window resize
+    generateStars();
+    window.addEventListener('resize', generateStars);
+  </script>
+</body>
+</html>
