@@ -6,60 +6,63 @@
     body {
       margin: 0;
       padding: 0;
-      background-color: #000;
-      color: aliceblue; /* Set text color for the whole page */
+      font-family: Arial, Helvetica, sans-serif;
     }
 
-    canvas {
-      display: block;
-      position: fixed;
-      top: 0;
-      left: 0;
-      z-index: -1;
+    .navbar {
+      background-color: #202124; /* Dark grey background color */
+      color: #fff;
+      padding: 10px;
+      display: flex;
+      align-items: center;
+    }
+
+    .navbar-title {
+      font-size: 24px;
+      margin-left: 10px;
     }
 
     .content {
-      /* Styles for your content go here */
-      padding: 20px;
-      font-family: Arial, Helvetica, sans-serif;
+      background-color: #857f7f; /* Grey background color */
+      padding: 30px;
+      display: grid;
+      place-items: left;
+      min-height: 1300px; /* Account for the height of the navbar */
+
+    }
+
+    .left-content {
+      margin-bottom: 1000px; /* Add margin to push the button higher up */
+    }
+
+    .discord-button {
+      display: inline-block;
+      background-color: #7289DA;
+      color: white;
+      border-radius: 50px;
+      padding: 15px 30px;
+      text-align: center;
+      text-decoration: none;
+      font-size: 20px;
+    }
+
+    .discord-button:hover {
+      background-color: #5f73ae;
     }
   </style>
 </head>
 <body>
-  <canvas id="starsCanvas"></canvas>
+  <div class="navbar">
+    <span class="navbar-title">Cremorrah</span>
+  </div>
 
   <div class="content">
     <h1>The Cremorrah Bubble</h1>
-    <p>The Cremorrah bubble is an Elite: Dangerous player driven bubble founded by the 2 CMDRs asarakola and Marc13 in mid 3309's</p>
-    <!-- Add more content as needed -->
+    <p>The Cremorrah Bubble is a player driven bubble founded in 3309 by the 2 CMDRs asarakola and Marc13</p>
+    <div class="left-content">
+      <a href="https://discord.gg/UgNJ4uceYM" class="discord-button">Join our Discord</a>
+    </div>
   </div>
 
-  <script>
-    // JavaScript code for generating stars on the canvas
-    const canvas = document.getElementById('starsCanvas');
-    const ctx = canvas.getContext('2d');
-
-    // Set canvas dimensions to match the window size
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-
-    // Function to generate random stars
-    function generateStars() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.fillStyle = '#FFF';
-
-      for (let i = 0; i < 200; i++) {
-        const x = Math.random() * canvas.width;
-        const y = Math.random() * canvas.height;
-        const size = Math.random() * 2;
-
-        ctx.fillRect(x, y, size, size);
-      }
-    }
-
-    // Call the generateStars function initially and on window resize
-    generateStars();
-    window.addEventListener('resize', generateStars);
-  </script>
 </body>
 </html>
